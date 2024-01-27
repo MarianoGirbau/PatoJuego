@@ -30,8 +30,9 @@ text = "Clicks"
 [node name="TextureButton" parent="Fondo" instance=ExtResource("3_cyn8k")]
 offset_left = 942.0
 offset_top = 764.0
-offset_right = 3507.0
-offset_bottom = 3695.0
+offset_right = 1812.0
+offset_bottom = 1694.0
+scale = Vector2(0.25, 0.25)
 
 [node name="MenuButton" type="MenuButton" parent="Fondo"]
 offset_left = 9.0

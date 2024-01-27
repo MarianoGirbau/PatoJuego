@@ -41,6 +41,7 @@ func _on_texture_button_pressed():
 	add_child(new_cuack_player)
 	new_cuack_player.play()
 	$Fondo/RichTextLabel.text = str(clicks)
+	sprite_pato.animation = "normal_cuack"
 	reiniciar_temporizador()
 
 

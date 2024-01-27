@@ -1,19 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0c5p6djhaw4a"]
+[gd_scene load_steps=9 format=3 uid="uid://d0c5p6djhaw4a"]
 
-[ext_resource type="Texture2D" uid="uid://dd7x0pfr60n31" path="res://Sprites/pato.png" id="1_tn8we"]
+[ext_resource type="Texture2D" uid="uid://byqr20ken18ik" path="res://Sprites/pato normal.png" id="1_cp16b"]
 [ext_resource type="Texture2D" uid="uid://bg0u1f5ffchhf" path="res://Sprites/pato moribundo.png" id="2_0sk6o"]
-[ext_resource type="Texture2D" uid="uid://cqir15w17ta4s" path="res://Sprites/pato triste.jpg" id="3_61uxu"]
+[ext_resource type="Texture2D" uid="uid://c6resiysu14b5" path="res://Sprites/pato normal cuak 0.2.png" id="2_uswkn"]
 [ext_resource type="Texture2D" uid="uid://g75obj0kyooh" path="res://Sprites/descarga.png" id="4_mo7xi"]
+[ext_resource type="Texture2D" uid="uid://d4nhbaf5p71co" path="res://Sprites/pato decaido.png" id="4_q66o8"]
 [ext_resource type="PackedScene" uid="uid://dckxk8ud5egls" path="res://Scenes/cuack.tscn" id="5_niba8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fydn6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_tn8we")
+"texture": ExtResource("1_cp16b")
 }],
 "loop": true,
 "name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uswkn")
+}],
+"loop": true,
+"name": &"normal_cuack",
 "speed": 5.0
 }, {
 "frames": [{
@@ -26,7 +35,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_61uxu")
+"texture": ExtResource("4_q66o8")
 }],
 "loop": true,
 "name": &"pato_triste",
@@ -37,33 +46,33 @@ animations = [{
 default_font_size = 200
 
 [node name="TextureButton" type="TextureButton"]
-offset_left = 869.0
-offset_top = 657.0
-offset_right = 3434.0
-offset_bottom = 3588.0
+offset_left = 997.0
+offset_top = 693.0
+offset_right = 1807.0
+offset_bottom = 1493.0
 scale = Vector2(0.1, 0.1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1940, 740)
+position = Vector2(440, 420)
 sprite_frames = SubResource("SpriteFrames_fydn6")
-animation = &"pato_moribundo"
+animation = &"normal"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -440.0
-offset_top = -1390.0
-offset_right = 2050.0
-offset_bottom = 57.0
+offset_left = -670.0
+offset_top = -890.0
+offset_right = 680.0
+offset_bottom = -103.0
 texture = ExtResource("4_mo7xi")
 
 [node name="Dialogos" type="Label" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.016
-offset_left = 590.0
-offset_top = 120.0
-offset_right = 1819.44
-offset_bottom = 680.0
+offset_left = 430.0
+offset_top = 130.0
+offset_right = 1659.44
+offset_bottom = 690.0
 theme = SubResource("Theme_5x1j7")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "hola "
