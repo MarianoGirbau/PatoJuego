@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxjrtfbcgrd5g"]
+[gd_scene load_steps=6 format=3 uid="uid://cxjrtfbcgrd5g"]
 
 [ext_resource type="Script" path="res://Scenes/canvas_pausa.gd" id="1_rpdo5"]
 [ext_resource type="Texture2D" uid="uid://cdqf3jkyok4hv" path="res://icon.svg" id="2_qqn2p"]
+[ext_resource type="Texture2D" uid="uid://3scnlhqpqt4u" path="res://Sprites/Iconos/icono_salir.png" id="3_3dspf"]
+[ext_resource type="Texture2D" uid="uid://b7equbo2hhdn2" path="res://Sprites/Iconos/icono_normal.png" id="4_d24ah"]
+[ext_resource type="Texture2D" uid="uid://bdqbrsuten4oc" path="res://Sprites/Iconos/icono_continuar.png" id="5_7akr6"]
 
 [node name="CanvasPausa" type="CanvasLayer"]
 script = ExtResource("1_rpdo5")
@@ -13,7 +16,6 @@ offset_top = 237.0
 offset_right = -202.0
 offset_bottom = 757.0
 texture = ExtResource("2_qqn2p")
-metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="TextureRect"]
 layout_mode = 0
@@ -27,22 +29,22 @@ text = "PAUSA"
 
 [node name="cerrar" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 220.0
-offset_top = 355.0
-offset_right = 380.0
-offset_bottom = 432.0
+offset_left = 219.0
+offset_top = 357.0
+offset_right = 379.0
+offset_bottom = 434.0
 text = "Cerrar"
-icon = ExtResource("2_qqn2p")
+icon = ExtResource("3_3dspf")
 expand_icon = true
 
 [node name="reiniciar" type="Button" parent="TextureRect"]
 layout_mode = 0
-offset_left = 214.0
-offset_top = 263.0
-offset_right = 374.0
-offset_bottom = 340.0
+offset_left = 219.0
+offset_top = 262.0
+offset_right = 379.0
+offset_bottom = 339.0
 text = "Reiniciar"
-icon = ExtResource("2_qqn2p")
+icon = ExtResource("4_d24ah")
 expand_icon = true
 
 [node name="Continuar" type="Button" parent="TextureRect"]
@@ -52,7 +54,7 @@ offset_top = 172.0
 offset_right = 378.0
 offset_bottom = 249.0
 text = "Continuar"
-icon = ExtResource("2_qqn2p")
+icon = ExtResource("5_7akr6")
 expand_icon = true
 
 [connection signal="pressed" from="TextureRect/cerrar" to="." method="_on_cerrar_pressed"]

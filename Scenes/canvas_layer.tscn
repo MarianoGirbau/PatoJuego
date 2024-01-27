@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtoso0fohg0vu"]
+[gd_scene load_steps=6 format=3 uid="uid://dtoso0fohg0vu"]
 
 [ext_resource type="Script" path="res://Scenes/canvas_layer.gd" id="1_srvv5"]
 [ext_resource type="Texture2D" uid="uid://cdqf3jkyok4hv" path="res://icon.svg" id="2_be4fv"]
+[ext_resource type="Texture2D" uid="uid://b7equbo2hhdn2" path="res://Sprites/Iconos/icono_normal.png" id="3_51r4c"]
 [ext_resource type="Texture2D" uid="uid://7gse1pvvk1sq" path="res://Sprites/pato muerto.png" id="3_m4u5w"]
+[ext_resource type="Texture2D" uid="uid://3scnlhqpqt4u" path="res://Sprites/Iconos/icono_salir.png" id="4_ueq6t"]
 
 [node name="Canvas_game_over" type="CanvasLayer"]
 script = ExtResource("1_srvv5")
@@ -37,7 +39,7 @@ offset_right = 436.0
 offset_bottom = 781.0
 theme_override_font_sizes/font_size = 50
 text = "Reiniciar"
-icon = ExtResource("2_be4fv")
+icon = ExtResource("3_51r4c")
 
 [node name="Cerrar" type="Button" parent="TextureRect"]
 layout_mode = 0
@@ -47,7 +49,7 @@ offset_right = 1011.0
 offset_bottom = 769.0
 theme_override_font_sizes/font_size = 50
 text = "Cerrar"
-icon = ExtResource("2_be4fv")
+icon = ExtResource("4_ueq6t")
 
 [node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
 position = Vector2(520, 384)
