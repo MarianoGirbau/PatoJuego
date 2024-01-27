@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0c5p6djhaw4a"]
+[gd_scene load_steps=10 format=3 uid="uid://d0c5p6djhaw4a"]
 
 [ext_resource type="Texture2D" uid="uid://byqr20ken18ik" path="res://Sprites/pato normal.png" id="1_cp16b"]
 [ext_resource type="Texture2D" uid="uid://bg0u1f5ffchhf" path="res://Sprites/pato moribundo.png" id="2_0sk6o"]
@@ -6,14 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://g75obj0kyooh" path="res://Sprites/descarga.png" id="4_mo7xi"]
 [ext_resource type="Texture2D" uid="uid://d4nhbaf5p71co" path="res://Sprites/pato decaido.png" id="4_q66o8"]
 [ext_resource type="PackedScene" uid="uid://dckxk8ud5egls" path="res://Scenes/cuack.tscn" id="5_niba8"]
+[ext_resource type="Script" path="res://Scripts/AnimatedSprite2D.gd" id="5_w0y0a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fydn6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_cp16b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_uswkn")
 }],
-"loop": true,
+"loop": false,
 "name": &"normal",
 "speed": 5.0
 }, {
@@ -56,6 +60,7 @@ scale = Vector2(0.1, 0.1)
 position = Vector2(440, 420)
 sprite_frames = SubResource("SpriteFrames_fydn6")
 animation = &"normal"
+script = ExtResource("5_w0y0a")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -78,3 +83,5 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "hola "
 
 [node name="Cuack" parent="." instance=ExtResource("5_niba8")]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]

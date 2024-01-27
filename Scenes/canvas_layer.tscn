@@ -11,10 +11,10 @@ script = ExtResource("1_srvv5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 self_modulate = Color(0, 0, 0, 1)
-offset_left = -1166.0
-offset_top = 70.0
-offset_right = -43.0
-offset_bottom = 931.0
+offset_left = -1125.0
+offset_top = 6.0
+offset_right = -2.0
+offset_bottom = 867.0
 texture = ExtResource("2_be4fv")
 metadata/_edit_group_ = true
 

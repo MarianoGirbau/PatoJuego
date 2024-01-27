@@ -16,8 +16,7 @@ func _ready():
 	sprite_pato =$Fondo/TextureButton/AnimatedSprite2D
 	dialogo_pato = $Fondo/TextureButton/TextureRect
 	texto_pato = $Fondo/TextureButton/TextureRect/Dialogos
-	
-
+	#sprite_pato.connect("_on_animated_sprite_2d_animation_finished", self, "_on_animation_finished")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
@@ -41,9 +40,8 @@ func _on_texture_button_pressed():
 	add_child(new_cuack_player)
 	new_cuack_player.play()
 	$Fondo/RichTextLabel.text = str(clicks)
-	sprite_pato.animation = "normal_cuack"
+	sprite_pato.play("normal")
 	reiniciar_temporizador()
-
 
 
 func _on_pato_timer_timeout():
@@ -52,7 +50,7 @@ func _on_pato_timer_timeout():
 func game_over():
 	clicks = 0
 	$Canvas_game_over.show()
-	$Canvas_game_over/TextureRect.position=$Adentro.position
+	$Canvas_game_over/TextureRect.position=$AdentroGO.position
 
 func reinicio():
 	$Canvas_game_over.hide()
@@ -67,8 +65,6 @@ func _on_menu_button_pressed():
 	
 	$CanvasPausa/TextureRect.position=$Adentro.position
 	$PatoTimer.set_paused(true)
-
-
 
 
 func continuar():
