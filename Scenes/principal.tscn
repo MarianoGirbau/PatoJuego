@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhf7vbys6gra3"]
+
+[ext_resource type="Texture2D" uid="uid://bsjwtky87uedm" path="res://Sprites/vecteezy_room-interior-background-illustration-bedroom-cartoon_8544947.jpg" id="1_foc6e"]
+[ext_resource type="Script" path="res://Scripts/principal.gd" id="1_q6s40"]
+[ext_resource type="PackedScene" uid="uid://d0c5p6djhaw4a" path="res://Scenes/texture_button.tscn" id="3_cyn8k"]
+[ext_resource type="Texture2D" uid="uid://cdqf3jkyok4hv" path="res://icon.svg" id="3_lslae"]
+[ext_resource type="PackedScene" uid="uid://dtoso0fohg0vu" path="res://Scenes/canvas_layer.tscn" id="5_pmx61"]
+[ext_resource type="PackedScene" uid="uid://cxjrtfbcgrd5g" path="res://Scenes/canvas_pausa.tscn" id="6_f80hg"]
+
+[sub_resource type="Theme" id="Theme_egsoj"]
+default_font_size = 29
+
+[node name="Principal" type="Node2D"]
+script = ExtResource("1_q6s40")
+
+[node name="Fondo" type="CanvasLayer" parent="."]
+
+[node name="SpriteFondo" type="Sprite2D" parent="Fondo"]
+position = Vector2(960, 540)
+texture = ExtResource("1_foc6e")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Fondo"]
+offset_left = 1479.0
+offset_top = 38.0
+offset_right = 1607.0
+offset_bottom = 84.0
+theme = SubResource("Theme_egsoj")
+text = "Clicks"
+
+[node name="TextureButton" parent="Fondo" instance=ExtResource("3_cyn8k")]
+offset_left = 942.0
+offset_top = 764.0
+offset_right = 3507.0
+offset_bottom = 3695.0
+
+[node name="MenuButton" type="MenuButton" parent="Fondo"]
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 78.0
+offset_bottom = 43.0
+icon = ExtResource("3_lslae")
+
+[node name="PatoTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Afuera" type="Marker2D" parent="."]
+position = Vector2(-1202, -204)
+
+[node name="Adentro" type="Marker2D" parent="."]
+position = Vector2(604, 298)
+
+[node name="Canvas_game_over" parent="." instance=ExtResource("5_pmx61")]
+
+[node name="CanvasPausa" parent="." instance=ExtResource("6_f80hg")]
+
+[connection signal="pressed" from="Fondo/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Fondo/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="timeout" from="PatoTimer" to="." method="_on_pato_timer_timeout"]

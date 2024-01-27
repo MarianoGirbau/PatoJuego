@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxjrtfbcgrd5g"]
+
+[ext_resource type="Script" path="res://Scenes/canvas_pausa.gd" id="1_rpdo5"]
+[ext_resource type="Texture2D" uid="uid://cdqf3jkyok4hv" path="res://icon.svg" id="2_qqn2p"]
+
+[node name="CanvasPausa" type="CanvasLayer"]
+script = ExtResource("1_rpdo5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -808.0
+offset_top = 237.0
+offset_right = -202.0
+offset_bottom = 757.0
+texture = ExtResource("2_qqn2p")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 153.0
+offset_top = -5.0
+offset_right = 476.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+text = "PAUSA"
+
+[node name="cerrar" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 355.0
+offset_right = 380.0
+offset_bottom = 432.0
+text = "Cerrar"
+icon = ExtResource("2_qqn2p")
+expand_icon = true
+
+[node name="reiniciar" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 263.0
+offset_right = 374.0
+offset_bottom = 340.0
+text = "Reiniciar"
+icon = ExtResource("2_qqn2p")
+expand_icon = true
+
+[node name="Continuar" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 172.0
+offset_right = 378.0
+offset_bottom = 249.0
+text = "Continuar"
+icon = ExtResource("2_qqn2p")
+expand_icon = true
+
+[connection signal="pressed" from="TextureRect/cerrar" to="." method="_on_cerrar_pressed"]
+[connection signal="pressed" from="TextureRect/reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="TextureRect/Continuar" to="." method="_on_continuar_pressed"]

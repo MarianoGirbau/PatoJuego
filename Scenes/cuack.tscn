@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dckxk8ud5egls"]
+
+[ext_resource type="AudioStream" uid="uid://cb4tya3dtf25f" path="res://sound/Y2meta.app - EFECTOS DE SONIDO PATO CUAC (128 kbps).mp3" id="1_3m1i0"]
+[ext_resource type="Script" path="res://Scenes/cuack.gd" id="2_tf0yh"]
+
+[node name="Cuack" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_3m1i0")
+script = ExtResource("2_tf0yh")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

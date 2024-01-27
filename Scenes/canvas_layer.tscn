@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtoso0fohg0vu"]
+
+[ext_resource type="Script" path="res://Scenes/canvas_layer.gd" id="1_srvv5"]
+[ext_resource type="Texture2D" uid="uid://cdqf3jkyok4hv" path="res://icon.svg" id="2_be4fv"]
+[ext_resource type="Texture2D" uid="uid://7gse1pvvk1sq" path="res://Sprites/pato muerto.png" id="3_m4u5w"]
+
+[node name="Canvas_game_over" type="CanvasLayer"]
+script = ExtResource("1_srvv5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -1166.0
+offset_top = 70.0
+offset_right = -43.0
+offset_bottom = 931.0
+texture = ExtResource("2_be4fv")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 50.0
+offset_right = 1050.0
+offset_bottom = 255.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 100
+text = "El pato murio"
+horizontal_alignment = 1
+
+[node name="Reiniciar" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 645.0
+offset_right = 436.0
+offset_bottom = 781.0
+theme_override_font_sizes/font_size = 50
+text = "Reiniciar"
+icon = ExtResource("2_be4fv")
+
+[node name="Cerrar" type="Button" parent="TextureRect"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 633.0
+offset_right = 1011.0
+offset_bottom = 769.0
+theme_override_font_sizes/font_size = 50
+text = "Cerrar"
+icon = ExtResource("2_be4fv")
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
+position = Vector2(520, 384)
+scale = Vector2(0.346615, 0.376852)
+texture = ExtResource("3_m4u5w")
+
+[connection signal="pressed" from="TextureRect/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="TextureRect/Cerrar" to="." method="_on_cerrar_pressed"]
