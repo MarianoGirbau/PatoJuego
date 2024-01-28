@@ -7,15 +7,16 @@ var texto_pato
 var cuack = preload("res://Scenes/cuack.tscn")
 
 func _ready():
+	iniciar_musica_fondo()
 	$Canvas_game_over.connect("Reiniciar",reinicio)
 	$CanvasPausa.connect("Reiniciar",reinicio)
 	$CanvasPausa.connect("Continuar",continuar)
 	$CanvasPausa.hide()
 	$Canvas_game_over.hide()
 	$Fondo/RichTextLabel.text = str(clicks)
-	sprite_pato =$Fondo/TextureButton/AnimatedSprite2D
-	dialogo_pato = $Fondo/TextureButton/TextureRect
-	texto_pato = $Fondo/TextureButton/TextureRect/Dialogos
+	sprite_pato =$Fondo/Path2D/PathFollow2D/TextureButton/AnimatedSprite2D
+	dialogo_pato = $Fondo/Path2D/PathFollow2D/TextureButton/TextureRect
+	texto_pato = $Fondo/Path2D/PathFollow2D/TextureButton/TextureRect/Dialogos
 	sprite_pato.connect("reset_temp",reiniciar_temporizador)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,22 +25,27 @@ func _process(delta):
 
 	if $PatoTimer.time_left <= 5 && $PatoTimer.time_left > 3:
 		sprite_pato.animation = "pato_triste"
+		$Fondo/Path2D/PathFollow2D.detener()
 		dialogo_pato.show()
 		texto_pato.text = "clickeame o moriré"
+		
 	elif $PatoTimer.time_left <= 3:
 		sprite_pato.animation = "pato_moribundo"
+		$Fondo/Path2D/PathFollow2D.detener()
 		texto_pato.text = "en serio we, me voy a morir"
 	else:
 		sprite_pato.animation = "normal"
+		$Fondo/Path2D/PathFollow2D.continuar()
 		dialogo_pato.hide()
 	print(sprite_pato.animation)
 
 func _on_texture_button_pressed():
 	clicks += 1
+	$Fondo/RichTextLabel.text = str(clicks)
 	var new_cuack_player = cuack.instantiate()
 	add_child(new_cuack_player)
 	new_cuack_player.play()
-	$Fondo/RichTextLabel.text = str(clicks)
+	sprite_pato.cliqueado()
 	if sprite_pato.animation == "normal" :
 		sprite_pato.play("normal")
 	elif  sprite_pato.animation == "pato_moribundo" :
@@ -53,11 +59,13 @@ func _on_pato_timer_timeout():
 	game_over()
 
 func game_over():
+	$musica_fondo.stop()
 	clicks = 0
 	$Canvas_game_over.show()
 	$Canvas_game_over/TextureRect.position=$AdentroGO.position
 
 func reinicio():
+	iniciar_musica_fondo()
 	$Canvas_game_over.hide()
 	$CanvasPausa.hide()
 	$Canvas_game_over/TextureRect.position=$Afuera.position
@@ -67,12 +75,13 @@ func reinicio():
 
 func _on_menu_button_pressed():
 	$CanvasPausa.show()
-	
+	$musica_fondo.stop()
 	$CanvasPausa/TextureRect.position=$Adentro.position
 	$PatoTimer.set_paused(true)
 
 
 func continuar():
+	iniciar_musica_fondo()
 	$CanvasPausa.hide()
 	$PatoTimer.set_paused(false)
 
@@ -84,5 +93,7 @@ func reiniciar_temporizador():
 	# Inicia el temporizador
 	$PatoTimer.start()
 
-
+func iniciar_musica_fondo():
+	$musica_fondo.play()
+	$musica_fondo.loop()
 

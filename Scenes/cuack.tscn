@@ -1,10 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://dckxk8ud5egls"]
+[gd_scene load_steps=8 format=3 uid="uid://dckxk8ud5egls"]
 
-[ext_resource type="AudioStream" uid="uid://cb4tya3dtf25f" path="res://sound/Y2meta.app - EFECTOS DE SONIDO PATO CUAC (128 kbps).mp3" id="1_3m1i0"]
 [ext_resource type="Script" path="res://Scenes/cuack.gd" id="2_tf0yh"]
+[ext_resource type="AudioStream" uid="uid://cb4tya3dtf25f" path="res://sound/Cuack_1.mp3" id="2_vr44d"]
+[ext_resource type="AudioStream" uid="uid://c8vxicjfef745" path="res://sound/otro_2.wav" id="3_v3wtx"]
+[ext_resource type="AudioStream" uid="uid://cnyyh0f681com" path="res://sound/cuack_3.wav" id="4_xmrho"]
+[ext_resource type="AudioStream" uid="uid://q1sy57f2b75o" path="res://sound/cuack_4.wav" id="5_mmmia"]
+[ext_resource type="AudioStream" uid="uid://bqt1bkhc8ugnq" path="res://sound/auto.wav" id="6_eak14"]
+[ext_resource type="AudioStream" uid="uid://cprlr5d8hcodw" path="res://sound/risa.wav" id="7_810xu"]
 
-[node name="Cuack" type="AudioStreamPlayer2D"]
-stream = ExtResource("1_3m1i0")
+[node name="Node2D" type="Node2D"]
 script = ExtResource("2_tf0yh")
 
-[connection signal="finished" from="." to="." method="_on_finished"]
+[node name="Cuack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_vr44d")
+
+[node name="Cuack_2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_v3wtx")
+
+[node name="Cuack_3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xmrho")
+
+[node name="Cuack_4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_mmmia")
+
+[node name="Auto" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_eak14")
+
+[node name="Riza" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_810xu")
+
+[connection signal="finished" from="Cuack" to="." method="_on_finished"]
+[connection signal="finished" from="Cuack_2" to="." method="_on_finished"]
+[connection signal="finished" from="Cuack_3" to="." method="_on_finished"]
+[connection signal="finished" from="Cuack_4" to="." method="_on_finished"]
+[connection signal="finished" from="Auto" to="." method="_on_finished"]
+[connection signal="finished" from="Riza" to="." method="_on_finished"]

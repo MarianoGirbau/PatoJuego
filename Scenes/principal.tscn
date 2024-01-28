@@ -1,14 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhf7vbys6gra3"]
+[gd_scene load_steps=11 format=3 uid="uid://bhf7vbys6gra3"]
 
 [ext_resource type="Texture2D" uid="uid://bsjwtky87uedm" path="res://Sprites/vecteezy_room-interior-background-illustration-bedroom-cartoon_8544947.jpg" id="1_foc6e"]
 [ext_resource type="Script" path="res://Scripts/principal.gd" id="1_q6s40"]
 [ext_resource type="PackedScene" uid="uid://d0c5p6djhaw4a" path="res://Scenes/texture_button.tscn" id="3_cyn8k"]
+[ext_resource type="Script" path="res://Scenes/PathFollow2D.gd" id="3_fq0cs"]
 [ext_resource type="Texture2D" uid="uid://cdqf3jkyok4hv" path="res://icon.svg" id="3_lslae"]
 [ext_resource type="PackedScene" uid="uid://dtoso0fohg0vu" path="res://Scenes/canvas_layer.tscn" id="5_pmx61"]
 [ext_resource type="PackedScene" uid="uid://cxjrtfbcgrd5g" path="res://Scenes/canvas_pausa.tscn" id="6_f80hg"]
+[ext_resource type="AudioStream" uid="uid://dalc4h2dr3ecr" path="res://sound/Soleado.wav" id="8_7dkeq"]
 
 [sub_resource type="Theme" id="Theme_egsoj"]
 default_font_size = 29
+
+[sub_resource type="Curve2D" id="Curve2D_uaovq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1082, 963, 0, 0, 0, 0, 1361, 697, 0, 0, 0, 0, 806, 867, 0, 0, 0, 0, 440, 676, 0, 0, 0, 0, 602, 896, 0, 0, 0, 0, 1082, 963)
+}
+point_count = 6
 
 [node name="Principal" type="Node2D"]
 script = ExtResource("1_q6s40")
@@ -27,11 +35,21 @@ offset_bottom = 84.0
 theme = SubResource("Theme_egsoj")
 text = "Clicks"
 
-[node name="TextureButton" parent="Fondo" instance=ExtResource("3_cyn8k")]
-offset_left = 942.0
-offset_top = 764.0
-offset_right = 1812.0
-offset_bottom = 1694.0
+[node name="Path2D" type="Path2D" parent="Fondo"]
+curve = SubResource("Curve2D_uaovq")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Fondo/Path2D"]
+position = Vector2(1082, 963)
+rotation = -0.76155
+rotates = false
+script = ExtResource("3_fq0cs")
+
+[node name="TextureButton" parent="Fondo/Path2D/PathFollow2D" instance=ExtResource("3_cyn8k")]
+offset_left = 27.6795
+offset_top = -173.951
+offset_right = 885.68
+offset_bottom = 745.049
+rotation = 0.84823
 scale = Vector2(0.25, 0.25)
 
 [node name="MenuButton" type="MenuButton" parent="Fondo"]
@@ -59,6 +77,10 @@ position = Vector2(604, 298)
 [node name="AdentroGO" type="Marker2D" parent="."]
 position = Vector2(398, 128)
 
-[connection signal="pressed" from="Fondo/TextureButton" to="." method="_on_texture_button_pressed"]
+[node name="musica_fondo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_7dkeq")
+autoplay = true
+
+[connection signal="pressed" from="Fondo/Path2D/PathFollow2D/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Fondo/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="timeout" from="PatoTimer" to="." method="_on_pato_timer_timeout"]
