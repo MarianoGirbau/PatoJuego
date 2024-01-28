@@ -1,20 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0c5p6djhaw4a"]
+[gd_scene load_steps=12 format=3 uid="uid://d0c5p6djhaw4a"]
 
 [ext_resource type="Texture2D" uid="uid://byqr20ken18ik" path="res://Sprites/pato normal.png" id="1_cp16b"]
 [ext_resource type="Texture2D" uid="uid://bg0u1f5ffchhf" path="res://Sprites/pato moribundo.png" id="2_0sk6o"]
 [ext_resource type="Texture2D" uid="uid://c6resiysu14b5" path="res://Sprites/pato normal cuak 0.2.png" id="2_uswkn"]
 [ext_resource type="Texture2D" uid="uid://g75obj0kyooh" path="res://Sprites/descarga.png" id="4_mo7xi"]
+[ext_resource type="Texture2D" uid="uid://yr1hohabcxaa" path="res://Sprites/pato moribundo cuak.png" id="4_nswky"]
 [ext_resource type="Texture2D" uid="uid://d4nhbaf5p71co" path="res://Sprites/pato decaido.png" id="4_q66o8"]
 [ext_resource type="PackedScene" uid="uid://dckxk8ud5egls" path="res://Scenes/cuack.tscn" id="5_niba8"]
 [ext_resource type="Script" path="res://Scripts/AnimatedSprite2D.gd" id="5_w0y0a"]
+[ext_resource type="Texture2D" uid="uid://b6x3k5guo4kob" path="res://Sprites/pato decaido cuak.png" id="6_p3pdh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fydn6"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("1_cp16b")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("2_uswkn")
 }],
 "loop": false,
@@ -22,26 +24,24 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_uswkn")
-}],
-"loop": true,
-"name": &"normal_cuack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("2_0sk6o")
+}, {
+"duration": 4.0,
+"texture": ExtResource("4_nswky")
 }],
-"loop": true,
+"loop": false,
 "name": &"pato_moribundo",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("4_q66o8")
+}, {
+"duration": 4.0,
+"texture": ExtResource("6_p3pdh")
 }],
-"loop": true,
+"loop": false,
 "name": &"pato_triste",
 "speed": 5.0
 }]
@@ -59,7 +59,7 @@ scale = Vector2(0.1, 0.1)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(440, 420)
 sprite_frames = SubResource("SpriteFrames_fydn6")
-animation = &"normal"
+animation = &"pato_moribundo"
 script = ExtResource("5_w0y0a")
 
 [node name="TextureRect" type="TextureRect" parent="."]

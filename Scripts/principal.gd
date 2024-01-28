@@ -16,7 +16,7 @@ func _ready():
 	sprite_pato =$Fondo/TextureButton/AnimatedSprite2D
 	dialogo_pato = $Fondo/TextureButton/TextureRect
 	texto_pato = $Fondo/TextureButton/TextureRect/Dialogos
-	#sprite_pato.connect("_on_animated_sprite_2d_animation_finished", self, "_on_animation_finished")
+	sprite_pato.connect("reset_temp",reiniciar_temporizador)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
@@ -32,7 +32,7 @@ func _process(delta):
 	else:
 		sprite_pato.animation = "normal"
 		dialogo_pato.hide()
-
+	print(sprite_pato.animation)
 
 func _on_texture_button_pressed():
 	clicks += 1
@@ -40,8 +40,13 @@ func _on_texture_button_pressed():
 	add_child(new_cuack_player)
 	new_cuack_player.play()
 	$Fondo/RichTextLabel.text = str(clicks)
-	sprite_pato.play("normal")
-	reiniciar_temporizador()
+	if sprite_pato.animation == "normal" :
+		sprite_pato.play("normal")
+	elif  sprite_pato.animation == "pato_moribundo" :
+		sprite_pato.play("pato_moribundo")
+	elif  sprite_pato.animation == "pato_triste" :
+		sprite_pato.play("pato_triste")
+	#reiniciar_temporizador()
 
 
 func _on_pato_timer_timeout():

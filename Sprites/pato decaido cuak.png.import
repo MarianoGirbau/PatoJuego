@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://up72qpqv6aur"
-path="res://.godot/imported/pato normal cuak.png-230b0631c084cc9d98e623333ddd6a33.ctex"
+uid="uid://b6x3k5guo4kob"
+path="res://.godot/imported/pato decaido cuak.png-14b4f76bcd484c757669801b00ce3ecb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/pato normal cuak.png"
-dest_files=["res://.godot/imported/pato normal cuak.png-230b0631c084cc9d98e623333ddd6a33.ctex"]
+source_file="res://Sprites/pato decaido cuak.png"
+dest_files=["res://.godot/imported/pato decaido cuak.png-14b4f76bcd484c757669801b00ce3ecb.ctex"]
 
 [params]
 
