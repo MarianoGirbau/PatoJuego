@@ -19,6 +19,7 @@ stream = ExtResource("3_v3wtx")
 
 [node name="Cuack_3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_xmrho")
+volume_db = 5.0
 
 [node name="Cuack_4" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_mmmia")
@@ -26,7 +27,7 @@ stream = ExtResource("5_mmmia")
 [node name="Auto" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_eak14")
 
-[node name="Riza" type="AudioStreamPlayer2D" parent="."]
+[node name="Risa" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_810xu")
 
 [connection signal="finished" from="Cuack" to="." method="_on_finished"]
@@ -34,4 +35,4 @@ stream = ExtResource("7_810xu")
 [connection signal="finished" from="Cuack_3" to="." method="_on_finished"]
 [connection signal="finished" from="Cuack_4" to="." method="_on_finished"]
 [connection signal="finished" from="Auto" to="." method="_on_finished"]
-[connection signal="finished" from="Riza" to="." method="_on_finished"]
+[connection signal="finished" from="Risa" to="." method="_on_finished"]

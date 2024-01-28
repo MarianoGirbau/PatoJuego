@@ -10,7 +10,7 @@ func _ready():
 func _process(delta):
 	pass
 func play():
-	var pista = randi_range(0,8)
+	var pista = randi_range(0,10)
 	if pista < 8:
 		$Cuack.play()
 	else:
@@ -25,7 +25,7 @@ func play():
 			4:
 				$Auto.play()
 			5:
-				$Riza.play()
+				$Risa.play()
 	
 
 func _on_finished():

@@ -1,5 +1,5 @@
 extends Node2D
-
+var pausado = false
 var clicks = 0
 var sprite_pato
 var dialogo_pato
@@ -23,19 +23,22 @@ func _ready():
 @warning_ignore("unused_parameter")
 func _process(delta):
 
-	if $PatoTimer.time_left <= 5 && $PatoTimer.time_left > 3:
+	if $PatoTimer.time_left <= 6 && $PatoTimer.time_left > 4:
 		sprite_pato.animation = "pato_triste"
 		$Fondo/Path2D/PathFollow2D.detener()
 		dialogo_pato.show()
-		texto_pato.text = "clickeame o moriré"
+		texto_pato.text = "clickeame o \nmoriré"
 		
-	elif $PatoTimer.time_left <= 3:
+	elif $PatoTimer.time_left <= 4:
 		sprite_pato.animation = "pato_moribundo"
 		$Fondo/Path2D/PathFollow2D.detener()
-		texto_pato.text = "en serio we, me voy a morir"
+		texto_pato.text = "en serio we,\nme voy a morir"
 	else:
 		sprite_pato.animation = "normal"
-		$Fondo/Path2D/PathFollow2D.continuar()
+		if pausado:
+			$Fondo/Path2D/PathFollow2D.detener()
+		else:
+			$Fondo/Path2D/PathFollow2D.continuar()
 		dialogo_pato.hide()
 	print(sprite_pato.animation)
 
@@ -65,15 +68,19 @@ func game_over():
 	$Canvas_game_over/TextureRect.position=$AdentroGO.position
 
 func reinicio():
+	pausado = false
 	iniciar_musica_fondo()
 	$Canvas_game_over.hide()
 	$CanvasPausa.hide()
 	$Canvas_game_over/TextureRect.position=$Afuera.position
 	$CanvasPausa/TextureRect.position=$Afuera.position
 	reiniciar_temporizador()
+	clicks = 0
+	$Fondo/RichTextLabel.text = str(clicks)
 
 
 func _on_menu_button_pressed():
+	pausado = true
 	$CanvasPausa.show()
 	$musica_fondo.stop()
 	$CanvasPausa/TextureRect.position=$Adentro.position
@@ -81,6 +88,7 @@ func _on_menu_button_pressed():
 
 
 func continuar():
+	pausado = false
 	iniciar_musica_fondo()
 	$CanvasPausa.hide()
 	$PatoTimer.set_paused(false)
@@ -95,5 +103,7 @@ func reiniciar_temporizador():
 
 func iniciar_musica_fondo():
 	$musica_fondo.play()
-	$musica_fondo.loop()
+	#$musica_fondo.set_loop(true)
+
+
 

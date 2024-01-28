@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqir15w17ta4s"
-path="res://.godot/imported/pato triste.jpg-94956ccd0e8cb20f9c16842dfa707a63.ctex"
+uid="uid://d3gdd4lhw6178"
+path="res://.godot/imported/icono_pausa.png-4a406ac61a47496d3d65ae51607fd0fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/pato triste.jpg"
-dest_files=["res://.godot/imported/pato triste.jpg-94956ccd0e8cb20f9c16842dfa707a63.ctex"]
+source_file="res://Sprites/Iconos/icono_pausa.png"
+dest_files=["res://.godot/imported/icono_pausa.png-4a406ac61a47496d3d65ae51607fd0fc.ctex"]
 
 [params]
 

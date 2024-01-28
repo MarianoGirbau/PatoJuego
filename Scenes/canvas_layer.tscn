@@ -28,7 +28,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 100
-text = "El pato murio"
+text = "El pato murió"
 horizontal_alignment = 1
 
 [node name="Reiniciar" type="Button" parent="TextureRect"]

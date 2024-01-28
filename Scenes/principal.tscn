@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://Scripts/principal.gd" id="1_q6s40"]
 [ext_resource type="PackedScene" uid="uid://d0c5p6djhaw4a" path="res://Scenes/texture_button.tscn" id="3_cyn8k"]
 [ext_resource type="Script" path="res://Scenes/PathFollow2D.gd" id="3_fq0cs"]
-[ext_resource type="Texture2D" uid="uid://cdqf3jkyok4hv" path="res://icon.svg" id="3_lslae"]
+[ext_resource type="Texture2D" uid="uid://d3gdd4lhw6178" path="res://Sprites/Iconos/icono_pausa.png" id="5_4i0nt"]
 [ext_resource type="PackedScene" uid="uid://dtoso0fohg0vu" path="res://Scenes/canvas_layer.tscn" id="5_pmx61"]
 [ext_resource type="PackedScene" uid="uid://cxjrtfbcgrd5g" path="res://Scenes/canvas_pausa.tscn" id="6_f80hg"]
-[ext_resource type="AudioStream" uid="uid://dalc4h2dr3ecr" path="res://sound/Soleado.wav" id="8_7dkeq"]
+[ext_resource type="AudioStream" uid="uid://ny5jiyd526f1" path="res://sound/Soundtrack.mp3" id="8_dxarn"]
 
 [sub_resource type="Theme" id="Theme_egsoj"]
 default_font_size = 29
@@ -28,19 +28,27 @@ position = Vector2(960, 540)
 texture = ExtResource("1_foc6e")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Fondo"]
-offset_left = 1479.0
-offset_top = 38.0
-offset_right = 1607.0
-offset_bottom = 84.0
+offset_left = 1556.0
+offset_top = 35.0
+offset_right = 1684.0
+offset_bottom = 81.0
 theme = SubResource("Theme_egsoj")
-text = "Clicks"
+text = "0"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Fondo"]
+offset_left = 1461.0
+offset_top = 34.0
+offset_right = 1589.0
+offset_bottom = 80.0
+theme = SubResource("Theme_egsoj")
+text = "Clicks:"
 
 [node name="Path2D" type="Path2D" parent="Fondo"]
 curve = SubResource("Curve2D_uaovq")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Fondo/Path2D"]
 position = Vector2(1082, 963)
-rotation = -0.76155
+rotation = -0.820305
 rotates = false
 script = ExtResource("3_fq0cs")
 
@@ -52,12 +60,14 @@ offset_bottom = 745.049
 rotation = 0.84823
 scale = Vector2(0.25, 0.25)
 
-[node name="MenuButton" type="MenuButton" parent="Fondo"]
+[node name="MenuButton" type="Button" parent="Fondo"]
 offset_left = 9.0
 offset_top = 9.0
-offset_right = 78.0
-offset_bottom = 43.0
-icon = ExtResource("3_lslae")
+offset_right = 529.0
+offset_bottom = 529.0
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("5_4i0nt")
+flat = true
 
 [node name="PatoTimer" type="Timer" parent="."]
 wait_time = 10.0
@@ -78,7 +88,8 @@ position = Vector2(604, 298)
 position = Vector2(398, 128)
 
 [node name="musica_fondo" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_7dkeq")
+stream = ExtResource("8_dxarn")
+volume_db = -3.0
 autoplay = true
 
 [connection signal="pressed" from="Fondo/Path2D/PathFollow2D/TextureButton" to="." method="_on_texture_button_pressed"]
